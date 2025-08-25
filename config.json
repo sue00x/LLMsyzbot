@@ -1,6 +1,6 @@
 {
-  "API_URL": "https://console-mlops.hwcloudtest.cn/v1/chat/completions",
-  "API_KEY": "sk-cepXUIfp5KY1k8IAE3F1706a29324f70AcBcA1A17eFaD528",
+  "API_URL": "",
+  "API_KEY": "",
   "MODEL": "Qwen3-32B-Client",
   "LLM_BACKOFF": 1.6,
   "temperature_report": 0.0,
