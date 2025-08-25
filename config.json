@@ -1,0 +1,25 @@
+{
+  "API_URL": "https://console-mlops.hwcloudtest.cn/v1/chat/completions",
+  "API_KEY": "sk-cepXUIfp5KY1k8IAE3F1706a29324f70AcBcA1A17eFaD528",
+  "MODEL": "Qwen3-32B-Client",
+  "LLM_BACKOFF": 1.6,
+  "temperature_report": 0.0,
+  "temperature_selfcheck": 0.0,
+  "temperature_explain": 0.2,
+  "evolve_thresholds": {
+    "nonverbatim_removed": 0.15,
+    "field_hit_rate": 0.85,
+    "order_violation_rate": 0.1
+  },
+  "LLM_RETRIES": 0,
+  "LLM_CONNECT_TIMEOUT": 10,
+  "LLM_READ_TIMEOUT": 55,
+  "LLM_TIMEOUT": 90, 
+  "LLM_CONCURRENCY": 2,
+
+  "token_budget": 500,
+  "max_lines_per_chunk": 60,
+  "chunk_stride": 50,
+  "fewshot_K": 4
+
+}
