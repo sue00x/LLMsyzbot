@@ -55,7 +55,7 @@ python syz_kasan_scraper_full.py --max-bugs 1 --combine
 python build_round_files.py --input crawler/result --out ./preprocess --source crawler
 ```
 
-5. Run extraction pipeline:
+5. Run parsing pipeline:
 
 ```bash
 python -m logagents.pipelines.pl_extract --logs ./preprocess/bug01/logs.jsonl --out  ./out/full --span full --mode ai_try --compact --explain sidecar --include_diag true
