@@ -45,18 +45,17 @@ logagents/
 ```json
    {"id": "bug01", "log": "<full kernel log text>"}
 ````
-
-   You can use syz_kasan_scraper_full.py to scrape the log from syzbot:
+3. You can use syz_kasan_scraper_full.py to scrape the log from syzbot:
 
 ```bash
 python syz_kasan_scraper_full.py --max-bugs 1 --combine 
 ```
-   Then use build_round_files.py to prepare the input log:
+4. Then use build_round_files.py to prepare the input log:
 ```bash
 python build_round_files.py --input crawler/result --out ./preprocess --source crawler
 ```
 
-3. Run extraction pipeline:
+5. Run extraction pipeline:
 
 ```bash
 python -m logagents.pipelines.pl_extract \
@@ -78,7 +77,7 @@ Artifacts:
 * `out/full/explain_sidecar/` — Per-sample explain metadata
 * Optional: `fallback_hits.jsonl` — Logs where rules fallback triggered
 
-4. (Optional) Run diagnosis on candidates:
+6. (Optional) Run diagnosis on candidates:
 
 **Rules JSON**
 
