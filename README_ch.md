@@ -32,9 +32,6 @@ logagents/
 ├─ pipelines/
 │  ├─ pl\_extract.py      # 主流程：抽取 → 补齐 → 规范化 → 策略 → Explain
 │  └─ pl\_diagnose.py     # 从 candidates 做诊断
-├─ prompts/
-│  ├─ fewshot\_pool.jsonl # LLM 抽取用的 few-shot 样例池
-│  └─ fewshot\_light.jsonl# 精简 few-shot 样例
 ├─ llm\_client.py         # LLM API 封装（Chat Completions）
 └─ config.json           # 模型、API 和运行参数
 
