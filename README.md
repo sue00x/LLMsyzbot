@@ -45,6 +45,7 @@ logagents/
 ```json
    {"id": "bug01", "log": "<full kernel log text>"}
 ````
+
    You can use syz_kasan_scraper_full.py to scrape the log from syzbot:
 
 ```bash
