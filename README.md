@@ -45,12 +45,12 @@ logagents/
 ```json
    {"id": "bug01", "log": "<full kernel log text>"}
 ````
-You can use syz_kasan_scraper_full.py to scrape the log from syzbot:
+   You can use syz_kasan_scraper_full.py to scrape the log from syzbot:
 
 ```bash
 python syz_kasan_scraper_full.py --max-bugs 1 --combine 
 ```
-Then use build_round_files.py to prepare the input log:
+   Then use build_round_files.py to prepare the input log:
 ```bash
 python build_round_files.py --input crawler/result --out ./preprocess --source crawler
 ```
