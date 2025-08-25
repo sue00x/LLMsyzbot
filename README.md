@@ -90,6 +90,11 @@ python -m logagents.pipelines.pl_diagnose \
   --format md
 ```
 
+**Log Explain**
+```bash
+python -m logagents.pipelines.pl_extract --logs ./preprocess/bug01/logs.jsonl --out  ./out/full --span full --mode ai_try --compact --explain sidecar --include_diag true   
+"""
+```
 ---
 
 ## Notes
