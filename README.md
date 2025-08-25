@@ -111,7 +111,5 @@ python -m logagents.pipelines.pl_extract --logs ./preprocess/bug01/logs.jsonl --
 | Output Stability    | High                 | Medium          | High                               |
 | Use Cases           | Fixed formats        | New/hetero logs | Hetero logs with controlled output |
 
----
 
-## License
 
