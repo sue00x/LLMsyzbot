@@ -31,9 +31,6 @@ logagents/
 ├─ pipelines/
 │  ├─ pl\_extract.py      # Main pipeline: extract → augment → normalize → policy → explain
 │  └─ pl\_diagnose.py     # Post-process diagnosis from candidates
-├─ prompts/
-│  ├─ fewshot\_pool.jsonl # Few-shot example pool for LLM extraction
-│  └─ fewshot\_light.jsonl# Lightweight few-shot fallback
 ├─ llm\_client.py         # Thin LLM API wrapper (Chat Completions)
 └─ config.json           # Model, API, and runtime parameters
 
