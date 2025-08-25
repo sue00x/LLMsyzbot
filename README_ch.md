@@ -46,21 +46,19 @@ logagents/
 ```json
    {"id": "bug01", "log": "<完整内核日志文本>"}
 ````
-
-3. 运行抽取流程：
+3. 你可以用 syz_kasan_scraper_full.py 从syzbot爬取标准日志以供测试:
 
 ```bash
-python -m logagents.pipelines.pl_extract \
-  --logs ./preprocess/logs.jsonl \
-  --out ./out/full \
-  --span full \
-  --mode ai_try \
-  --compact \
-  --explain sidecar \
-  --include_diag true \
-  --call_trace_max 25 \
-  --mem_hex_max 96 \
-  --diag_total_max 400
+python syz_kasan_scraper_full.py --max-bugs 1 --combine 
+```
+4. 接着用 build_round_files.py 为输入日志做准备:
+```bash
+python build_round_files.py --input crawler/result --out ./preprocess --source crawler
+```
+5. 运行抽取流程：
+
+```bash
+python -m logagents.pipelines.pl_extract --logs ./preprocess/bug01/logs.jsonl --out  ./out/full --span full --mode ai_try --compact --explain sidecar --include_diag true
 ```
 
 生成的文件：
@@ -69,28 +67,24 @@ python -m logagents.pipelines.pl_extract \
 * `out/full/explain_sidecar/` — 每条样本的 Explain 元数据
 * 可选：`fallback_hits.jsonl` — 触发规则兜底的样本
 
-4. （可选）对 candidates 进行诊断：
+6. （可选）对 candidates 进行诊断：
 
-**规则 JSON**
+**Rules JSON**
 
 ```bash
-python -m logagents.pipelines.pl_diagnose \
-  --candidates ./out/full/candidates.jsonl \
-  --out ./out/full \
-  --mode rules \
-  --format json
+python -m logagents.pipelines.pl_diagnose --candidates ./out/full/candidates.jsonl --out ./out/full/explain_CoT --mode rules --format json
 ```
 
 **CoT Markdown**
 
 ```bash
-python -m logagents.pipelines.pl_diagnose \
-  --candidates ./out/full/candidates.jsonl \
-  --out ./out/full \
-  --mode cot \
-  --format md
+python -m logagents.pipelines.pl_diagnose --candidates ./out/full/candidates.jsonl --out ./out/full/explain_CoT --mode cot --format md
 ```
 
+**Log Explain**
+```bash
+python -m logagents.pipelines.pl_extract --logs ./preprocess/bug01/logs.jsonl --out  ./out/full --span full --mode ai_try --compact --explain sidecar --include_diag true   
+```
 ---
 
 ## 说明
