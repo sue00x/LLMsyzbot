@@ -58,17 +58,7 @@ python build_round_files.py --input crawler/result --out ./preprocess --source c
 5. Run extraction pipeline:
 
 ```bash
-python -m logagents.pipelines.pl_extract \
-  --logs ./preprocess/logs.jsonl \
-  --out ./out/full \
-  --span full \
-  --mode ai_try \
-  --compact \
-  --explain sidecar \
-  --include_diag true \
-  --call_trace_max 25 \
-  --mem_hex_max 96 \
-  --diag_total_max 400
+python -m logagents.pipelines.pl_extract --logs ./preprocess/bug01/logs.jsonl --out  ./out/full --span full --mode ai_try --compact --explain sidecar --include_diag true
 ```
 
 Artifacts:
@@ -82,21 +72,13 @@ Artifacts:
 **Rules JSON**
 
 ```bash
-python -m logagents.pipelines.pl_diagnose \
-  --candidates ./out/full/candidates.jsonl \
-  --out ./out/full \
-  --mode rules \
-  --format json
+python -m logagents.pipelines.pl_diagnose --candidates ./out/full/candidates.jsonl --out ./out/full/explain_CoT --mode rules --format json
 ```
 
 **CoT Markdown**
 
 ```bash
-python -m logagents.pipelines.pl_diagnose \
-  --candidates ./out/full/candidates.jsonl \
-  --out ./out/full \
-  --mode cot \
-  --format md
+python -m logagents.pipelines.pl_diagnose --candidates ./out/full/candidates.jsonl --out ./out/full/explain_CoT --mode cot --format md
 ```
 
 **Log Explain**
